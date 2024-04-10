@@ -76,7 +76,7 @@ func main() {
 	if rt, err = common.NewResourceTypes(rTypes, rTypesConfig); err != nil {
 		logrus.WithError(err).Fatal("new resource types")
 	}
-	logrus.Info("initialized resource types")
+	logrus.Infof("initialized resource types: %+v", rt.Types())
 
 	go func(boskos boskosClient) {
 		for range time.Tick(updateFrequency) {
